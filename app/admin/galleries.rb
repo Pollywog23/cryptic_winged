@@ -20,6 +20,7 @@ ActiveAdmin.register Galleries do
       f.inputs "Galleries" do 
         f.input :title
         f.input :body
+        t.input :mautre
         
         f.has_many :photos do |item|
           item.input :title

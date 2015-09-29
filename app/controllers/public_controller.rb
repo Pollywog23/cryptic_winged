@@ -5,6 +5,8 @@ class PublicController < ApplicationController
   end
 
   def blog
+    @blogs = Blog.all.order(:created_at => 'desc').page([params[:page].to_i, 1].max).per(3)
+    logger.info "BLOGS: #{@blogs.count}"
 
   end
 
