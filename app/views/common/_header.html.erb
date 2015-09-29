@@ -1,0 +1,62 @@
+ <div id="preloader">
+      <div id="status">&nbsp;</div>
+    </div>
+
+    <!-- Navigation
+    ================================================== -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>              
+          </button>
+          <a class="navbar-brand" href="index.html">
+            <%= image_tag "logo.png", :alt => "logo" %>
+          </a> <!-- Your logo here-->
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="page-scroll" href="#banner">Home</a></li>
+            <li><a class="page-scroll" href="#vision">Vision</a></li>
+            <li><a class="page-scroll" href="#portfolio">Galleries</a></li>
+            <li><a class="page-scroll" href="#about">About</a></li>
+            <li><a class="page-scroll" href="#footer">Contact</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div><!-- End navbar-collapse -->
+      </div><!-- End container -->
+    </nav>
+
+    <!-- Header/Homepage
+    ================================================== -->
+    <header id="banner" class="carousel slide zoom carousel-fade" data-ride="carousel">
+
+      <div class="carousel-inner"><!-- Inner wrapper for slides -->
+        <div class="item active"> <!-- First item slider -->
+          <%= image_tag "01_bg.jpg", :alt => "banner-img" %> <!-- First item background image slider -->
+          <div class="carousel-caption overlay">
+            <div class="content">
+              <div class="text wow bounceIn" data-wow-delay="0.2s">
+                <h1>Cryptic Winged Photography</h1>
+                <hr>
+              </div>
+            </div>
+          </div> <!-- End first item background image slider -->
+        </div> <!-- End first item slider -->
+
+         
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#banner" role="button" data-slide="prev">
+        <%= image_tag "06_left.png", :alt => "prev-img" %> <!-- Left controls -->
+      </a>
+      <a class="right carousel-control" href="#banner" role="button" data-slide="next">
+        <%= image_tag "05_right.png", :alt => "next-img" %> <!-- Right controls -->
+      </a>
+    </header>
