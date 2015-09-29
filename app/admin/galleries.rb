@@ -1,13 +1,23 @@
 ActiveAdmin.register Galleries do
+# ActiveAdmin.register Photo do
+# belongs_to :photo
+#  end
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
- permit_params :title, :body, :published, :photos_attributes => [:id, :title, :image]
+ permit_params :title, :body, :mature, :photos_attributes => [:id, :title, :image]
+#
+# or
+#
+# permit_params do
+#   permitted = [:permitted, :attributes]
+#   permitted << :other if resource.something?
+#   permitted
+# end
 
-
-  form do |f|
-      f.inputs "Gallery" do 
+    form do |f|
+      f.inputs "Galleries" do 
         f.input :title
         f.input :body
         
@@ -22,15 +32,6 @@ ActiveAdmin.register Galleries do
 
       f.actions
     end
-
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if resource.something?
-#   permitted
-# end
 
 
 end
