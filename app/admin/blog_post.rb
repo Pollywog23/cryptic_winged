@@ -1,4 +1,4 @@
-ActiveAdmin.register Blog do
+ActiveAdmin.register BlogPost do
  # before_filter :apply_pagination
 
 
@@ -6,7 +6,7 @@ ActiveAdmin.register Blog do
 
 
     form do |f|
-      f.inputs "Blog" do 
+      f.inputs "Blog Post" do 
         f.input :title
         f.input :body
         f.input :date

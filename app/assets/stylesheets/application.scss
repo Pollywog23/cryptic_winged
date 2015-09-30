@@ -264,6 +264,8 @@ hr {
         -webkit-transition: padding .3s;
         -moz-transition: padding .3s;
         transition: padding .3s;
+        background-color: rgba(0,0,0,0.5);    
+        
     }
     .navbar-default .navbar-nav>.active>a { border-radius: 3px }
     .navbar-default.navbar-shrink {

@@ -1,4 +1,4 @@
-ActiveAdmin.register Galleries do
+ActiveAdmin.register Gallery do
 # ActiveAdmin.register Photo do
 # belongs_to :photo
 #  end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930191708) do
+ActiveRecord::Schema.define(version: 20150930205202) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20150930191708) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "blogs", force: :cascade do |t|
+  create_table "blog_posts", force: :cascade do |t|
     t.string   "title",              limit: 255
     t.text     "body",               limit: 65535
     t.datetime "date"
