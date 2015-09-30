@@ -22,12 +22,12 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="page-scroll" href="#banner">Home</a></li>
-            <li><a class="page-scroll" href="#vision">Vision</a></li>
+            <li><a class="page-scroll" href="<%= params[:action] == 'blog' ? "/" : "#banner" %>">Home</a></li>
+            <li><a class="page-scroll" href="<%= params[:action] == 'blog' ? "/#vision" : "#vision" %>">Vision</a></li>
             <li><a class="page-scroll" href="#portfolio">Galleries</a></li>
             <li><a class="page-scroll" href="#about">About</a></li>
             <li><a class="page-scroll" href="#footer">Contact</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="blog">Blog</a></li>
           </ul>
         </div><!-- End navbar-collapse -->
       </div><!-- End container -->

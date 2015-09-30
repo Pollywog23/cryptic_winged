@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require bootstrap.min
 //= require_tree .
 //= require_self
 
@@ -119,9 +119,9 @@ function main() {
       new WOW().init();
 
     // Header/Vision carousel slider
-      $('.carousel').carousel({
-        interval: 3000
-      });
+      // $('.carousel').carousel({
+      //   interval: 3000
+      // });
 
 
     // jQuery for page scrolling feature - requires jQuery Easing plugin

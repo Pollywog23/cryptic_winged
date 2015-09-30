@@ -21,7 +21,7 @@ ActiveAdmin.register Galleries do
         f.input :title
         f.input :body
         f.input :published
-        # f.input :muture
+        f.input :mature
         
         f.has_many :photos do |item|
           item.input :title
