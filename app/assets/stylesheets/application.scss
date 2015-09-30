@@ -12,8 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= stub active_admin
  */
-
 /*=======================
 Theme: Awesome Photography/Portfolio Template
 Author: JLP Media
@@ -388,7 +388,7 @@ opacity: .9;
     background-color: #fec503;
 }
 #vision {
-    background-image: asset-url("01_services.jpg");
+    background-image: asset-url("vision1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 580px;
@@ -441,7 +441,7 @@ opacity: .9;
 ********** Blog ***********
 **************************/
 #blog {
-    background-image: asset-url('01_services.jpg');
+    background-image: asset-url('vision2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 420px;
@@ -1065,7 +1065,7 @@ figure.effect-portfolio:hover img {
 ****** About Section ******
 **************************/
 #about {
-    background-image: asset-url('03_about.jpg');
+    background-image: asset-url('about3.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;

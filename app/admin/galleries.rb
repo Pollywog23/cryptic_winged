@@ -6,7 +6,7 @@ ActiveAdmin.register Galleries do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
- permit_params :title, :body, :mature, :photos_attributes => [:id, :title, :image]
+ permit_params :title, :body, :published, :mature, :photos_attributes => [:id, :title, :image]
 #
 # or
 #
@@ -20,7 +20,8 @@ ActiveAdmin.register Galleries do
       f.inputs "Galleries" do 
         f.input :title
         f.input :body
-        t.input :mautre
+        f.input :published
+        # f.input :muture
         
         f.has_many :photos do |item|
           item.input :title
