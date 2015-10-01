@@ -1,70 +1,77 @@
-  <div class="light-overlay ptitle">
-        <h2>Art through a lens</h2>
-        <h5>View all my galleries</h5>
-      </div>
+<div class="light-overlay ptitle">
+  <h2>Art through a lens</h2>
+  <h5>View all my galleries</h5>
+</div>
+
+
+<section id="portfolio" class="grid">
+  <% @galleries.each do |gallery| %>
+    <figure class="effect-portfolio wow fadeIn" data-wow-duration="2s"> <!-- Portfolio 2 -->
+      
+      <%= gallery.mature ? (image_tag "02_mobile_services.jpg") : (image_tag gallery.photos.first.image.url(:large), :alt => "") %>
+      
+      <figcaption> <!-- Caption -->
+        <h2><%= gallery.title %></h2>
+        <p>Click to view this gallery</p>
+        <a href="#gallery_<%= gallery.id %>" class="portfolio-link" data-toggle="modal">View more</a><!-- Larger image popup -->
+      </figcaption> <!-- End caption -->   
+    </figure> <!-- End portfolio 2 -->
+  <% end %>
+</section> 
+
    
-<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-    
-            <div class="container">
-              <% @galleries.each do |gallerirs| %>
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2>galleries.title</h2>
+<% @galleries.each do |gallery| %>
+  <div class="portfolio-modal modal fade" id="gallery_<%= gallery.id %>" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-content">
+          <div class="close-modal" data-dismiss="modal">
+              <div class="lr">
+                  <div class="rl">
+                  </div>
+              </div>
+          </div>
 
+          <div class="container">
+            
+              <div class="row">
+                  <div class="col-lg-8 col-lg-offset-2">
+                      <div class="modal-body">
+                          <!-- Project Details Go Here -->
+                          <h2><%= gallery.title %></h2>
+                          <p><%= gallery.body %></p>
+                                                    <ul class="list-inline">
+                              <li>Date: August 2014</li>
+                              <li>Client: Tarsier Graphics</li>
+                              <li>Category: Image Design</li>
+                          </ul>
 
-                            <div id="slider" class="carousel slide" data-ride="carousel">
+                          <div id="slider" class="carousel slide" data-ride="carousel">
 
-                              <!-- Wrapper for slides -->
-                              <div class="carousel-inner">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                              <% gallery.photos.each do |photo| %>
                                 <div class="item active">
-                                  <%#= image_tag galleries.photos.first.image.url(:thumb), :alt => "" %>
+                                  <%= image_tag photo.image.url, :alt => "" %>
                                 </div>
-                              </div>
-
-                              <!-- Controls -->
-                              <a class="left carousel-control" href="#slider" role="button" data-slide="prev">
-                                <span class="fa fa-caret-left fa-2x"></span>
-                              </a>
-                              <a class="right carousel-control" href="#slider" role="button" data-slide="next">
-                                <span class="fa fa-caret-right fa-2x"></span>
-                              </a>
+                              <% end %>
                             </div>
 
-                            <p><%#= galleries.body %></p>
-                            <p><strong>Want these theme for your portfolio?</strong> You can download this theme here for only $10, courtesy of jlpmedia.com. Awesome Photography/Portfolio Template is a bootstrap based awesome photography portfolio template. Creatively designed to present your artwork beautifully and clean. Catch more visitors and potential clients by using Solstice Photography/Portfolio Template to showcase your photography and crafts. This is mobile responsive template, very easy to use and well-documented codes.</p>
-                            <ul class="list-inline">
-                                <li>Date: August 2014</li>
-                                <li>Client: Tarsier Graphics</li>
-                                <li>Category: Image Design</li>
-                            </ul>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            <!-- Controls -->
+                          <!--   <a class="left carousel-control" href="#slider" role="button" data-slide="prev">
+                              <span class="fa fa-caret-left fa-2x"></span>
+                            </a>
+                            <a class="right carousel-control" href="#slider" role="button" data-slide="next">
+                              <span class="fa fa-caret-right fa-2x"></span>
+                            </a> -->
+                          </div>
 
-                        </div>
-                    </div>
-                </div>
-                <% end %>
-            </div>
-        </div>
-    </div>
+                          
+                          <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
 
-  <section id="portfolio" class="grid">
-
-      <figure class="effect-portfolio wow fadeIn" data-wow-duration="2s"> <!-- Portfolio 2 -->
-        <%= image_tag "02.jpg", :alt => "02_img" %> <!-- Your image here -->
-        <figcaption> <!-- Caption -->
-          <h2>Slider</h2>
-          <p>Click to view this gallery</p>
-          <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">View more</a><!-- Larger image popup -->
-        </figcaption> <!-- End caption -->   
-      </figure> <!-- End portfolio 2 -->
-
-    </section> 
+                      </div>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+  </div>
+<% end %>

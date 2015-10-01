@@ -1,11 +1,4 @@
-<!-- <section id="blog">
-      <div class="dark-overlay vision">
-        <div class="centered vision-border wow bounceIn">
-          <h4>Welcome to</h4>
-          <h2>My Blog</h2>
-        </div>
-      </div>
-    </section> -->
+
 
     <!-- Blog Posts
     ================================================== -->
@@ -24,8 +17,10 @@
                                 <li>Post By: <a href="#">Admin</a></li>
                                 <li>Date: <a href="#"><%=blog.date%></a></li>
                             </ul>
-                            <img class="img-responsive" src="http://placehold.it/600x400" alt="Image">
-                            <%=blog.body%>
+                            
+                            <%= image_tag blog.image(:large), :class => "img-responsive", :alt => "Image" %>
+                            <%= blog.body.html_safe %>
+                            
                         </div>
                     </div>
                     <div class="clearfix"></div>

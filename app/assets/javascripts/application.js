@@ -15,6 +15,7 @@
 //= require bootstrap.min
 //= require_tree .
 //= require_self
+//= require redactor-rails
 
 $(function() {
 
@@ -148,3 +149,4 @@ function main() {
 
 }
 main();
+

@@ -11,6 +11,21 @@
 @import "active_admin/mixins";
 @import "active_admin/base";
 
+
+@import "redactor-rails/css/redactor";
+@import "redactor-rails/css/style";
+
+
+// Fix redactor-rails, 90% solution, the last 10% isn't worth it to me.
+.redactor-box {
+  margin-left: 20%;
+  border: 1px solid #C9D0D6;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  width: 79.8%;
+}
+
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //

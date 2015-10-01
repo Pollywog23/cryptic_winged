@@ -4,7 +4,7 @@ class CreateBlogs < ActiveRecord::Migration
       t.string :title
       t.text :body
       t.datetime :date
-      t.boolean :published
+      t.boolean :published, :default => false
 
       t.timestamps null: false
     end
