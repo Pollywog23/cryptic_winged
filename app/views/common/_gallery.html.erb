@@ -8,7 +8,7 @@
   <% @galleries.each do |gallery| %>
     <figure class="effect-portfolio wow fadeIn" data-wow-duration="2s"> <!-- Portfolio 2 -->
       
-      <%= gallery.mature ? (image_tag "02_mobile_services.jpg") : (image_tag gallery.photos.first.image.url(:large), :alt => "") %>
+      <%= (gallery.mature or gallery.photos.empty?) ? (image_tag "02_mobile_services.jpg") : (image_tag gallery.photos.first.image.url(:large), :alt => "") %>
       
       <figcaption> <!-- Caption -->
         <h2><%= gallery.title %></h2>
@@ -18,6 +18,13 @@
     </figure> <!-- End portfolio 2 -->
   <% end %>
 </section> 
+
+
+
+
+
+
+
 
    
 <% @galleries.each do |gallery| %>
@@ -37,12 +44,8 @@
                       <div class="modal-body">
                           <!-- Project Details Go Here -->
                           <h2><%= gallery.title %></h2>
-                          <p><%= gallery.body %></p>
-                                                    <ul class="list-inline">
-                              <li>Date: August 2014</li>
-                              <li>Client: Tarsier Graphics</li>
-                              <li>Category: Image Design</li>
-                          </ul>
+                          <p><%= gallery.body.html_safe %></p>
+                           
 
                           <div id="slider" class="carousel slide" data-ride="carousel">
 
@@ -56,12 +59,12 @@
                             </div>
 
                             <!-- Controls -->
-                          <!--   <a class="left carousel-control" href="#slider" role="button" data-slide="prev">
+                            <a class="left carousel-control" href="#slider" role="button" data-slide="prev">
                               <span class="fa fa-caret-left fa-2x"></span>
                             </a>
                             <a class="right carousel-control" href="#slider" role="button" data-slide="next">
                               <span class="fa fa-caret-right fa-2x"></span>
-                            </a> -->
+                            </a>
                           </div>
 
                           
