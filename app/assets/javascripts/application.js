@@ -37,7 +37,7 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "././submit.php",
+                url: "/send_mail",
                 type: "POST",
                 data: {
                     name: name,

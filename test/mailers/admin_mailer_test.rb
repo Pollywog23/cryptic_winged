@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class AdminMailerTest < ActionMailer::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  def contact_mail_preview
+
+    AdminMailer.contact_email
+  end
 end
