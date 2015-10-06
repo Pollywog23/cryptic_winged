@@ -1,24 +1,19 @@
- 
+<!-- Header/Homepage
+================================================== -->
+<header id="banner" class="carousel slide zoom carousel-fade" data-ride="carousel">
 
-    <!-- Header/Homepage
-    ================================================== -->
-    <header id="banner" class="carousel slide zoom carousel-fade" data-ride="carousel">
+  <div class="carousel-inner"><!-- Inner wrapper for slides -->
+    <div class="item active"> <!-- First item slider -->
+      <%= image_tag "banner#{[1,2,3,4,].sample}.jpg", :alt => "banner-img" %> <!-- First item background image slider -->
+      <div class="carousel-caption overlay">
+        <div class="content">
+          <div class="text wow bounceIn" data-wow-delay="0.2s">
+            <h1 class="hidden-xs">Cryptic Winged Photography</h1>
+            <h3 class="visible-xs">Cryptic Winged Photography</h3>
+            <hr>
+          </div>
+        </div>
+      </div> <!-- End first item background image slider -->
+    </div> <!-- End first item slider -->
 
-      <div class="carousel-inner"><!-- Inner wrapper for slides -->
-        <div class="item active"> <!-- First item slider -->
-          <%= image_tag "banner#{[1,2,3,4,].sample}.jpg", :alt => "banner-img" %> <!-- First item background image slider -->
-          <div class="carousel-caption overlay">
-            <div class="content">
-              <div class="text wow bounceIn" data-wow-delay="0.2s">
-                <h1>Cryptic Winged Photography</h1>
-                <hr>
-              </div>
-            </div>
-          </div> <!-- End first item background image slider -->
-        </div> <!-- End first item slider -->
-
-         
-
-      <!-- Controls -->
-     
-    </header>
+</header>

@@ -11,6 +11,7 @@ gem 'paperclip'
 gem 'kaminari'
 gem 'redactor-rails'
 gem 'figaro'
+gem 'jquery-fileupload-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

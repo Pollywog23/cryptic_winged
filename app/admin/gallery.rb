@@ -22,7 +22,6 @@ ActiveAdmin.register Gallery do
         f.input :body, input_html:{class: 'redactor'}
         f.input :published
         f.input :mature
-
         
         f.has_many :photos do |item|
           item.input :title
@@ -38,3 +37,6 @@ ActiveAdmin.register Gallery do
 
 
 end
+
+
+

@@ -17,6 +17,7 @@
 //= require_self
 //= require redactor-rails
 
+
 $(function() {
 
     $("input,textarea").jqBootstrapValidation({
@@ -114,15 +115,32 @@ function main() {
       $("#show").click(function(){
         $("#contact").slideToggle("slow,swing");
       });
+
+      $('.mature').click(function(e){
+        
+        $('#myModal').attr('destination', String(e.target.hash));
+
+        $('#myModal').modal('show');
+        return false;
+      });
+
+      $('.continue').on('click', function() {
+        $($('#myModal').attr('destination')).modal('show');
+      });
+
+      $('.quit').on('click', function() {
+        
+      });
+
     });
 
     // Wow animation
       new WOW().init();
 
     // Header/Vision carousel slider
-      // $('.carousel').carousel({
-      //   interval: 3000
-      // });
+      $('.carousel').carousel({
+        interval: false
+      });
 
 
     // jQuery for page scrolling feature - requires jQuery Easing plugin

@@ -310,11 +310,11 @@ hr {
 
 .carousel-control:hover, 
 .carousel-control:focus {
-color: #fec503;
-text-decoration: none;
-filter: alpha(opacity=90);
-outline: 0;
-opacity: .9;
+    color: #fec503;
+    text-decoration: none;
+    filter: alpha(opacity=90);
+    outline: 0;
+    opacity: .9;
 }
 
 .img-responsive,
@@ -332,9 +332,15 @@ opacity: .9;
     opacity: 0;
     z-index: 2;
 }
-.carousel-control.right,
+.carousel-control.right{
+    right: -108px;
+    /*top: 0%;*/
+    background-image: none;
+}
+
 .carousel-control.left {
-    top: 47%;
+    left: -108px;
+    /*top: 0%;*/
     background-image: none;
 }
 
@@ -349,10 +355,9 @@ opacity: .9;
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 0;
     width: 15%;
     font-size: 20px;
-    color: #fff;
+    color: #000;
     text-align: center;
     text-shadow: 0 1px 2px rgba(0,0,0,.6);
     opacity: .5;
@@ -460,6 +465,11 @@ opacity: .9;
     padding-bottom: 100px;
     color: #000000;
 }
+
+.blog p {
+    text-align: left;
+}
+
 .blog-border:hover > h2,
 .blog-border:hover {
     color: #fec503;
@@ -920,16 +930,20 @@ figure.effect-portfolio:hover img {
 }
 
 .carousel-control.right span.fa, .carousel-control.left span.fa {
-    border: 1px solid #fff;
+    position: absolute;
+    margin-top: -37px;
+    top: 50%;
+    left: 33px;
     width: 45px;
     height: 45px;
-    border-radius: 50%;
     padding: 2px 15px;
 }
-.carousel-control.right span.fa:hover,
+
+
+/*.carousel-control.right span.fa:hover,
 .carousel-control.left span.fa:hover{
     border: 1px solid #FFBE00;
-}
+}*/
 
 /**************************
 ***** Portfolio Modal *****
@@ -1178,10 +1192,10 @@ ol {
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: auto;
-    min-height: 320px;
+    min-height: 200px;
     max-height: 1000px;
     text-align: center;
-    padding-top: 5%;
+    padding-top: 2%;
     padding-bottom: 2%;
 }
 #footer h2 {

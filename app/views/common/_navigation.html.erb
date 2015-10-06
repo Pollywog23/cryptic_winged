@@ -23,8 +23,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li><a class="page-scroll" href="<%= params[:action] == 'blog' ? "/" : "#banner" %>">Home</a></li>
-            <li><a class="page-scroll" href="<%= params[:action] == 'blog' ? "/" : "#gallery" %>">Gallery</a></li>
-            <li><a class="page-scroll" href="#about">About</a></li>
+            <li><a class="page-scroll" href="<%= params[:action] == 'blog' ? "/#portfolio" : "#portfolio" %>">Gallery</a></li>
+             <li><a class="page-scroll" href="<%= params[:action] == 'blog' ? "/#about" : "#about" %>">About</a></li>
             <li><a class="page-scroll" href="#footer">Contact</a></li>
             <li><a href="blog">Blog</a></li>
           </ul>

@@ -6,7 +6,7 @@
 
 <section id="portfolio" class="grid">
   <% @galleries.each do |gallery| %>
-    <figure class="effect-portfolio wow fadeIn" data-wow-duration="2s"> <!-- Portfolio 2 -->
+    <figure class="effect-portfolio wow fadeIn <%= gallery.mature ? 'mature' : 'normal' %>" data-wow-duration="2s"> <!-- Portfolio 2 -->
       
       <%= (gallery.mature or gallery.photos.empty?) ? (image_tag "02_mobile_services.jpg") : (image_tag gallery.photos.first.image.url(:large), :alt => "") %>
       
@@ -20,7 +20,7 @@
 </section> 
 
 <% @galleries.each do |gallery| %>
-  <div class="portfolio-modal modal fade" id="gallery_<%= gallery.id %>" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="portfolio-modal modal fade <%= gallery.mature ? 'mature-content' : 'normal-content' %>" id="gallery_<%= gallery.id %>" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-content">
           <div class="close-modal" data-dismiss="modal">
               <div class="lr">
@@ -30,33 +30,51 @@
           </div>
 
           <div class="container">
-            
               <div class="row">
+                <%#= paginate @galleries %>
                   <div class="col-lg-8 col-lg-offset-2">
+
                       <div class="modal-body">
                           <!-- Project Details Go Here -->
                           <h2><%= gallery.title %></h2>
                           <p><%= gallery.body.html_safe %></p>
                            
 
-                          <div id="slider" class="carousel slide" data-ride="carousel">
-
-                            <!-- Wrapper for slides -->
+                          <div id="slider_<%= gallery.id %>" class="carousel slide" data-ride="carousel">
+                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
+                              <%#= paginate @galleries %>
                               <% gallery.photos.each do |photo| %>
-                                <div class="item active">
+                                <div class="item <%= gallery.photos.first.id == photo.id ? 'active' : 'not_active' %>">
                                   <%= image_tag photo.image.url, :alt => "" %>
+                                  <!-- <div class="carousel-caption">
+                                    <h1>Blah</h1>
+                                  </div> -->
                                 </div>
                               <% end %>
                             </div>
 
-                            <!-- Controls -->
-                            <a class="left carousel-control" href="#slider" role="button" data-slide="prev">
+
+                            <% begin %>
+                              <a class="left carousel-control" href="#slider_<%= gallery.id %>" role="button" data-slide="prev">
+                                <span class="fa fa-caret-left fa-2x" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                              <a class="right carousel-control" href="#slider_<%= gallery.id %>" role="button" data-slide="next">
+                                <span class="fa fa-caret-right fa-2x" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                              </a>
+                            <% end unless gallery.photos.size == 1 %>
+
+
+
+                            <!-- <a class="left carousel-control" href="#slider_<%= gallery.id %>" role="button" data-slide="prev">
                               <span class="fa fa-caret-left fa-2x"></span>
                             </a>
-                            <a class="right carousel-control" href="#slider" role="button" data-slide="next">
+                            <a class="right carousel-control" href="#slider_<%= gallery.id %>" role="button" data-slide="next">
                               <span class="fa fa-caret-right fa-2x"></span>
-                            </a>
+                            </a> -->
+
                           </div>
 
                           
@@ -65,8 +83,32 @@
                       </div>
                   </div>
               </div>
-              
+                <%#= paginate gallery.photos.all %>
           </div>
       </div>
   </div>
 <% end %>
+
+
+<div class="mature-content-warning">
+
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">This gallery may contain nudity.</h4>
+          </div>
+          <div class="modal-body">
+            
+            <p>In order to enter this website you must certify as follows:</p>
+            <p>Under the governing law of my country I have reached the age of majority and the age required to view sexually explicit material and I am accessing this website from a location where sexually explicit content is legal and permitted. I will not permit any person to access this website who is not legally permitted to do so.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success continue" data-dismiss="modal">Yes</button>
+            <button type="button" class="btn btn-error quit" data-dismiss="modal">No</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+  </div>
