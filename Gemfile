@@ -10,6 +10,8 @@ gem 'devise'
 gem 'paperclip'
 gem 'kaminari'
 gem 'redactor-rails'
+gem "carrierwave"
+gem "mini_magick"
 gem 'figaro'
 gem 'jquery-fileupload-rails'
 # Use SCSS for stylesheets
