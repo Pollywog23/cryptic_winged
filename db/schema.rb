@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930205202) do
+ActiveRecord::Schema.define(version: 20151008202803) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -50,9 +50,9 @@ ActiveRecord::Schema.define(version: 20150930205202) do
     t.string   "title",              limit: 255
     t.text     "body",               limit: 65535
     t.datetime "date"
-    t.boolean  "published",          limit: 1
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.boolean  "published",          limit: 1,     default: false
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
     t.string   "image_file_name",    limit: 255
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size",    limit: 4
@@ -78,12 +78,12 @@ ActiveRecord::Schema.define(version: 20150930205202) do
     t.boolean  "published",          limit: 1
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.integer  "owner_id",           limit: 4
     t.string   "owner_type",         limit: 255
     t.string   "image_file_name",    limit: 255
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
+    t.integer  "owner_id",           limit: 4
   end
 
   create_table "redactor_assets", force: :cascade do |t|
