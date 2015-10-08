@@ -1,9 +1,12 @@
 ActiveAdmin.register BlogPost do
- # before_filter :apply_pagination
+ # default_fields :title, :body  
 
 
   permit_params :title, :body, :date, :published, :image, :photos_attributes => [:id, :title, :image]
 
+  scope :all, default: true
+  scope("Hidden") { |scope| scope.where(published: false) }
+  scope("Published") { |scope| scope.where(published: true) }
 
   form do |f|
     f.inputs "Blog Post" do 
