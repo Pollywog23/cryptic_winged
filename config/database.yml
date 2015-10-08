@@ -49,6 +49,10 @@ test:
 #
 production:
   <<: *default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  host: localhost
   database: cryptic_winged_production
   username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
