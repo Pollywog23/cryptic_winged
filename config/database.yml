@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: cryptic_winged_production
-  username: cryptic_winged
-  password: <%= ENV['CRYPTIC_WINGED_DATABASE_PASSWORD'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
