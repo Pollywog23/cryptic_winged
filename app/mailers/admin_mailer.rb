@@ -1,6 +1,6 @@
 class AdminMailer < ApplicationMailer
 
-  default from: "crypticwingedphotography@yahoo.com"
+  default from: "crypticwingedserver@gmail.com"
 
   def contact_email(name, email, phone, body)
     @name = name
