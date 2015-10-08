@@ -7,8 +7,7 @@ class AdminMailer < ApplicationMailer
     @email = email
     @phone = phone
     @body = body
-    mail(to:'marshasclark23@gmail.com')
-    #mail(to:'crypticwingedphotography@yahoo.com
+    mail(to:'crypticwingedphotography@yahoo.com
   end
   
 end
