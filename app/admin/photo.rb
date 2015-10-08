@@ -1,6 +1,6 @@
 ActiveAdmin.register Photo do
   controller do
-    belongs_to :galleries, :polymorphic => true
+    belongs_to :gallery, :polymorphic => true
     belongs_to :blog_post, :polymorphic => true
   end
 # belongs_to :Gallery
