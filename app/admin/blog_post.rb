@@ -1,5 +1,14 @@
 ActiveAdmin.register BlogPost do
- # default_fields :title, :body  
+  # column :title
+  # column :created_at, :except => :index
+
+  index do
+  selectable_column
+  column :title
+  column :published
+  actions
+  end
+  
 
 
   permit_params :title, :body, :date, :published, :image, :photos_attributes => [:id, :title, :image]

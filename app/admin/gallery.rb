@@ -6,6 +6,17 @@ ActiveAdmin.register Gallery do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
+  index do
+    selectable_column
+    column :title
+    column :published
+    column :mature
+    actions
+  end
+  
+
+
+
   permit_params :title, :body, :published, :mature, :image, :photos_attributes => [:id, :title, :image]
 
   scope :all, default: true

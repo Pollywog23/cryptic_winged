@@ -14,8 +14,8 @@ ActiveAdmin.register_page "Dashboard" do
 
     # div do
     #   span  do
-    #     span "Dick"
-    #     small "Face"
+    #     span "dont forget to always logout!"
+    #     small "dont add pictures to galleries, untill after you have saved"
     #   end
     # end
 
