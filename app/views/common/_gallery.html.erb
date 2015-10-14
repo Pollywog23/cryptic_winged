@@ -46,7 +46,7 @@
                               <%#= paginate @galleries %>
                               <% gallery.photos.each do |photo| %>
                                 <div class="item <%= gallery.photos.first.id == photo.id ? 'active' : 'not_active' %>">
-                                  <%= image_tag photo.image.url, :alt => "" %>
+                                  <%= image_tag photo.image.url(:large), :alt => "" %>
                                   <!-- <div class="carousel-caption">
                                     <h1>Blah</h1>
                                   </div> -->
