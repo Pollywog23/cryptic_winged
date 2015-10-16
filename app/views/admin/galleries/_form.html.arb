@@ -1,0 +1,28 @@
+active_admin_form_for [:admin, resource], :html => {:class => "edit_gallery"} do |f|
+  f.inputs :title
+  f.input :published
+  f.input :mature
+  f.input :sticky
+  f.file_field( :photo, multiple: true, name: "gallery[photos_attributes][][image]") unless resource.new_record?
+
+  f.actions
+end
+
+insert_tag(Arbre::HTML::Div, :id => "photos") do
+
+end
+
+insert_tag(Arbre::HTML::Script, :id => "template-upload", :type => "text/x-tmpl" ) do
+  div(:class => "upload") do
+    div(:class => "progress progress-striped active") do
+
+      div(:class=> "progress-bar bar progress-bar-success", :role => "progressbar", "aria-valuenow" => 25, "aria-valuemin" => 0, "aria-valuemax" => 100, :style => "width: 0%") do
+        span(:class => "sr-only") do
+          text_node "{%=o.name%}"
+        end
+      end
+      text_node "{%=o.progress%}"
+    end
+  end
+end
+

@@ -20,14 +20,17 @@ ActiveAdmin.register BlogPost do
   form do |f|
     f.inputs "Blog Post" do 
       f.input :title
-      f.input :published
       f.input :body, input_html:{class: 'redactor'}
+      f.input :published
       f.input :image, :as => :file
+      f.input :_destroy, :as => :boolean
 
-      # f.has_many :photos do |item|
-      #   item.input :title
-      #   item.input :image, :as => :file
-      # end
+
+      f.has_many :photos do |item|
+        item.input :title
+        item.input :image, :as => :file
+        item.input :_destroy, :as => :boolean
+      end
 
     end
 

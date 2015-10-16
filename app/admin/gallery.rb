@@ -14,6 +14,18 @@ ActiveAdmin.register Gallery do
   scope("Published") { |scope| scope.where(published: true) }
   scope("Mature") { |scope| scope.where(mature: true) }
 
+  controller do
+    # This code is evaluated within the controller class
+
+    def create
+      @gallery = Gallery.create(permitted_params[:gallery])
+      @photo = @gallery.photos.map { |p| p if p.changed?}.compact.first
+      
+      redirect_to admin_galleries_path(@gallery)
+      # Instance method
+    end
+  end
+
   index do
     selectable_column
     column :title
@@ -27,7 +39,7 @@ ActiveAdmin.register Gallery do
   show do
     attributes_table do
       row :title
-      row('Body') { |b| b.body.html_safe }
+      # row('Body') { |b| b.body.html_safe }
       row('Published') { |b| status_tag b.published }
       row('Mature') { |b| status_tag b.mature }
       row('Sticky') { |b| status_tag b.sticky }
@@ -37,9 +49,21 @@ ActiveAdmin.register Gallery do
     end
     active_admin_comments
   end
+
+
+   def update
+      puts "Updating"
+      puts params[:photos_attributes]
+      @gallery = Gallery.find(params[:id])
+      @gallery.update(permitted_params[:gallery])
+      @photo = @gallery.photos.map { |p| p if p.changed?}.compact.first
+      puts @gallery
+      puts @photo.nil?
+      redirect_to admin_galleries_path
+    end
   
   
-  form do |f|
+  form html: { multipart: true } do |f|
     f.actions
     f.inputs "Galleries" do 
 
@@ -48,7 +72,8 @@ ActiveAdmin.register Gallery do
       f.input :published
       f.input :mature
       f.input :sticky
-      
+      f.input :gallery_images_url, :as => :file, :input_html => {:multiple => true}, name: "gallery[gallery_images_attributes][][url]"
+
       f.has_many :photos do |item|
         item.input :title
         item.input :image, :as => :file, hint: (item.object.new_record? ? "Add an image file" : (item.template.image_tag(item.object.image.url(:medium))))
@@ -60,8 +85,11 @@ ActiveAdmin.register Gallery do
     f.actions
   end
 
+  form partial: 'form'  
 
 end
 
 
+
+ 
 
