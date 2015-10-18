@@ -12,12 +12,12 @@ ActiveAdmin.register_page "Dashboard" do
     #   end
     # end
 
-    # div do
-    #   span  do
-    #     span "dont forget to always logout!"
-    #     small "dont add pictures to galleries, untill after you have saved"
-    #   end
-    # end
+    div do
+      span  do
+        span "dont forget to always logout!"
+        
+      end
+    end
 
     # Here is an example of a simple dashboard with columns and panels.
     #

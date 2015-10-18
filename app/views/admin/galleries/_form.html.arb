@@ -1,12 +1,14 @@
 active_admin_form_for [:admin, resource], :html => {:class => "edit_gallery"} do |f|
   f.inputs :title
+  f.input :body, input_html:{class: 'redactor'}
   f.input :published
   f.input :mature
   f.input :sticky
-  f.file_field( :photo, multiple: true, name: "gallery[photos_attributes][][image]") unless resource.new_record?
+  f.file_field( :photo, multiple: true, name: "gallery[photos_attributes][][image]") unless resource.new_record?    
 
   f.actions
 end
+
 
 insert_tag(Arbre::HTML::Div, :id => "photos") do
 

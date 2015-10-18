@@ -1,11 +1,4 @@
 ActiveAdmin.register Gallery do
-# ActiveAdmin.register Photo do
-# belongs_to :photo
-#  end
-
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
 
   permit_params :title, :body, :published, :mature, :sticky, :image, :photos_attributes => [:id, :title, :image, :_destroy]
   
@@ -15,16 +8,27 @@ ActiveAdmin.register Gallery do
   scope("Mature") { |scope| scope.where(mature: true) }
 
   controller do
-    # This code is evaluated within the controller class
+   
 
     def create
       @gallery = Gallery.create(permitted_params[:gallery])
       @photo = @gallery.photos.map { |p| p if p.changed?}.compact.first
       
-      redirect_to admin_galleries_path(@gallery)
-      # Instance method
+      redirect_to edit_admin_gallery_path(@gallery)
     end
-  end
+
+   def update
+      @gallery = Gallery.find(params[:id])
+      @gallery.update(permitted_params[:gallery])
+      @photo = @gallery.photos.map { |p| p if p.changed?}.compact.first
+      
+      puts "Gallery? #{@gallery}"
+      puts "Photo? #{@photo}"
+
+      redirect_to admin_gallery_path(@gallery) if @photo.nil?
+   end
+   
+ end
 
   index do
     selectable_column
@@ -50,40 +54,27 @@ ActiveAdmin.register Gallery do
     active_admin_comments
   end
 
+  # form html: { multipart: true } do |f|
+  #   f.actions
+  #   f.inputs "Galleries" do 
 
-   def update
-      puts "Updating"
-      puts params[:photos_attributes]
-      @gallery = Gallery.find(params[:id])
-      @gallery.update(permitted_params[:gallery])
-      @photo = @gallery.photos.map { |p| p if p.changed?}.compact.first
-      puts @gallery
-      puts @photo.nil?
-      redirect_to admin_galleries_path
-    end
+  #     f.input :title
+  #     f.input :body, input_html:{class: 'redactor'}
+  #     f.input :published
+  #     f.input :mature
+  #     f.input :sticky
+  #     f.input :gallery_images_url, :as => :file, :input_html => {:multiple => true}, name: "gallery[gallery_images_attributes][][url]"
+
+  #     f.has_many :photos do |item|
+  #       item.input :title
+  #       item.input :image, :as => :file, hint: (item.object.new_record? ? "Add an image file" : (item.template.image_tag(item.object.image.url(:medium))))
+  #       item.input :_destroy, :as => :boolean
+  #     end
+
+  #   end
+
   
-  
-  form html: { multipart: true } do |f|
-    f.actions
-    f.inputs "Galleries" do 
-
-      f.input :title
-      f.input :body, input_html:{class: 'redactor'}
-      f.input :published
-      f.input :mature
-      f.input :sticky
-      f.input :gallery_images_url, :as => :file, :input_html => {:multiple => true}, name: "gallery[gallery_images_attributes][][url]"
-
-      f.has_many :photos do |item|
-        item.input :title
-        item.input :image, :as => :file, hint: (item.object.new_record? ? "Add an image file" : (item.template.image_tag(item.object.image.url(:medium))))
-        item.input :_destroy, :as => :boolean
-      end
-
-    end
-
-    f.actions
-  end
+  # end
 
   form partial: 'form'  
 
