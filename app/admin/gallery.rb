@@ -1,19 +1,18 @@
 ActiveAdmin.register Gallery do
 
   permit_params :title, :body, :published, :mature, :sticky, :image, :photos_attributes => [:id, :title, :image, :_destroy]
-  
+
   scope :all, default: true
   scope("Hidden") { |scope| scope.where(published: false) }
   scope("Published") { |scope| scope.where(published: true) }
   scope("Mature") { |scope| scope.where(mature: true) }
 
   controller do
-   
 
     def create
       @gallery = Gallery.create(permitted_params[:gallery])
       @photo = @gallery.photos.map { |p| p if p.changed?}.compact.first
-      
+
       redirect_to edit_admin_gallery_path(@gallery)
     end
 
@@ -21,13 +20,13 @@ ActiveAdmin.register Gallery do
       @gallery = Gallery.find(params[:id])
       @gallery.update(permitted_params[:gallery])
       @photo = @gallery.photos.map { |p| p if p.changed?}.compact.first
-      
+
       puts "Gallery? #{@gallery}"
       puts "Photo? #{@photo}"
 
       redirect_to admin_gallery_path(@gallery) if @photo.nil?
    end
-   
+
  end
 
   index do
@@ -39,7 +38,7 @@ ActiveAdmin.register Gallery do
     actions
   end
 
-  
+
   show do
     attributes_table do
       row :title
@@ -49,14 +48,14 @@ ActiveAdmin.register Gallery do
       row('Sticky') { |b| status_tag b.sticky }
 
       render 'gallery_show', :locals => {:gallery => gallery}
-      
+
     end
     active_admin_comments
   end
 
   # form html: { multipart: true } do |f|
   #   f.actions
-  #   f.inputs "Galleries" do 
+  #   f.inputs "Galleries" do
 
   #     f.input :title
   #     f.input :body, input_html:{class: 'redactor'}
@@ -73,14 +72,14 @@ ActiveAdmin.register Gallery do
 
   #   end
 
-  
+
   # end
 
-  form partial: 'form'  
+  form partial: 'form'
 
 end
 
 
 
- 
+
 
